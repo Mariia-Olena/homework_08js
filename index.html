@@ -22,6 +22,20 @@
             return numbers[i] * 2;
         });
         console.log(mapResult);
+
+        function filter(array, condition) {
+            let newFilter = [];
+            for (i = 0; i < array.length; i++) {
+                if (condition() === true) {
+                    newFilter[newFilter.length] = words[i];
+                } 
+            }
+            return newFilter;
+        }
+        const filterResult = filter(words, function(){
+            return words[i].length > 5;
+        });
+        console.log(filterResult);
     </script>
 </body>
 </html>
