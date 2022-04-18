@@ -26,13 +26,13 @@
             let newFilter = [];
             for (i = 0; i < array.length; i++) {
                 if (condition(array[i], i, array) === true) {
-                    newFilter[newFilter.length] = words[i];
+                    newFilter[newFilter.length] = array[i];
                 }
             }
             return newFilter;
         }
         const filterResult = filter(words, function(item, index, array){
-            return item.length > 5;
+            return index < 4;
         });
         console.log(filterResult);
 
