@@ -13,27 +13,26 @@
         function map(array, condition) {
             let newMap = [];
             for (i = 0; i < array.length; i++) {
-                condition();
-                newMap[newMap.length] = condition();
+                newMap[newMap.length] = condition(array[i], i, array);
             }
             return newMap;
         }
-        const mapResult = map(numbers, function(){
-            return numbers[i] * 2;
+        const mapResult = map(numbers, function(item, index, array){
+            return item + 2;
         });
         console.log(mapResult);
 
         function filter(array, condition) {
             let newFilter = [];
             for (i = 0; i < array.length; i++) {
-                if (condition() === true) {
+                if (condition(array[i], i, array) === true) {
                     newFilter[newFilter.length] = words[i];
                 }
             }
             return newFilter;
         }
-        const filterResult = filter(words, function(){
-            return words[i].length > 5;
+        const filterResult = filter(words, function(item, index, array){
+            return item.length > 5;
         });
         console.log(filterResult);
 
@@ -71,9 +70,3 @@
     </script>
 </body>
 </html>
-
-
-{
-    '31/07/2019': ['Today is cold', 'Today is warm']
-    '31/07/2019': ['Today is cold', 'Today is warm']
-    },
