@@ -28,7 +28,7 @@
             for (i = 0; i < array.length; i++) {
                 if (condition() === true) {
                     newFilter[newFilter.length] = words[i];
-                } 
+                }
             }
             return newFilter;
         }
@@ -36,6 +36,44 @@
             return words[i].length > 5;
         });
         console.log(filterResult);
+
+        const notification = [
+            {
+            date: '31/07/2019',
+            msg: 'Some message here'
+            },
+            {
+            date: '31/07/2019',
+            msg: 'Today is warm'
+            },
+            {
+            date: '07/01/2020',
+            msg: 'Today is cold'
+            },
+            {
+            date: '07/01/2020',
+            msg: 'Happy Cristmas!'
+            },
+            {
+            date: '31/07/2019',
+            msg: 'Happy Birthday!'
+            }
+        ];
+        const notificationResalt = notification.reduce(function(accum, elem) {
+            const propertyName = elem.date;
+            if (!accum[propertyName]) {
+                accum[propertyName] = [];
+            }
+            accum[propertyName].push(elem.msg);
+            return accum;
+        }, {});
+        console.log(notificationResalt);
     </script>
 </body>
 </html>
+
+
+{
+    '31/07/2019': ['Today is cold', 'Today is warm']
+    '31/07/2019': ['Today is cold', 'Today is warm']
+    },
