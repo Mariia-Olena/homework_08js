@@ -10,13 +10,16 @@
     <script>
         const numbers = [1, 2, 3, 4, 5];
         const words = ['hello', 'weather', 'world', 'JavaScript', 'spring'];
+
         function map(array, condition) {
             let newMap = [];
-            for (i = 0; i < array.length; i++) {
+
+            for (let i = 0; i < array.length; i++) {
                 newMap[newMap.length] = condition(array[i], i, array);
             }
             return newMap;
         }
+
         const mapResult = map(numbers, function(item, index, array){
             return item + 2;
         });
@@ -24,15 +27,17 @@
 
         function filter(array, condition) {
             let newFilter = [];
-            for (i = 0; i < array.length; i++) {
+
+            for (let i = 0; i < array.length; i++) {
                 if (condition(array[i], i, array) === true) {
                     newFilter[newFilter.length] = array[i];
                 }
             }
             return newFilter;
         }
+
         const filterResult = filter(words, function(item, index, array){
-            return index < 4;
+            return item.length < 6;
         });
         console.log(filterResult);
 
@@ -58,11 +63,14 @@
             msg: 'Happy Birthday!'
             }
         ];
+        
         const notificationResalt = notification.reduce(function(accum, elem) {
             const propertyName = elem.date;
+
             if (!accum[propertyName]) {
                 accum[propertyName] = [];
             }
+
             accum[propertyName].push(elem.msg);
             return accum;
         }, {});
